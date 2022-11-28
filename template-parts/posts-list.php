@@ -1,4 +1,5 @@
 <?php
+    // определение на родительскую или дочернюю страницу
     $is_parent;
     global $post;
     if ( is_page() && $post->post_parent ) {
@@ -6,16 +7,25 @@
     } else {
         $is_parent = true;
     }
+    // получение заголовка данного поста
+    $this_title = get_the_title();
+    // получения ID данной страницы
+    $this_page_ID = get_the_ID();
 ?>
-
-
-<?php $this_title = get_the_title(); ?>
 <?php
-    $query = new WP_Query(array(
+    $parent_args = [
+        'post_type' => 'page',
+        'post_parent' => $this_page_ID
+    ];
+    $children_args = [
         'post_type' => 'page',
         'post_parent' => $post->post_parent
-    )
-    );
+    ];
+    if($is_parent == true){
+        $query = new WP_Query($parent_args);
+    } else {
+        $query = new WP_Query($children_args);
+    }
     ?>
     <div class="posts-list">
         <?php

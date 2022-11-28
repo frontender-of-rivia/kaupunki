@@ -17,7 +17,7 @@ Template Name: permits category template
                 </div>
                 <div class="layout--def__body">
                     <div class="singlecom__title">
-                        Markkinoinnin suunnittelu
+                        <?php the_title(); ?>
                     </div>
                     <div class="layout--def__content">
                         the content
@@ -25,7 +25,7 @@ Template Name: permits category template
                 </div>
             </div>
             <div class="layout--def__right">
-                categories
+                <?php get_template_part('template-parts/posts-list'); ?>
             </div>
         </div>
     </div>
