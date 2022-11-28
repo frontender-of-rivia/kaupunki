@@ -4,7 +4,7 @@ Template Name: home page
 */
 ?>
 <!-- header -->
-<?php get_header(); ?>
+<?php get_header('front'); ?>
 <!-- face -->
 <div class="face">
     <div class="face__slider swiper">
@@ -75,4 +75,4 @@ Template Name: home page
     </div>
 </div>
 <!-- footer -->
-<?php get_footer(); ?>
+<?php get_footer('front'); ?>

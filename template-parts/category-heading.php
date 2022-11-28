@@ -7,7 +7,6 @@
         $is_parent = true;
     }
 ?>
-
 <div class="navhead" style="background-image: url(<?php ($is_parent == true) ? the_field('category_head_background') : the_field('category_head_background', $post->post_parent); ?>)">
     <div class="container navhead__container">
         <div class="navhead__content">
