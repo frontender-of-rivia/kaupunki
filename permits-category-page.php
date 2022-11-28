@@ -5,19 +5,8 @@ Template Name: Permits category page
 ?>
 <!-- header -->
 <?php get_header(); ?>
-<!-- navhead -->
-<div class="navhead" style="background-image: url(../images/dist/navhead-bg.jpg)">
-    <div class="container navhead__container">
-        <div class="navhead__content">
-            <div class="navhead__icon">
-                <img src="images/dist/nav-icon.svg">
-            </div>
-            <h2 class="navhead__title">
-                Tapahtumajärjestäjälle
-            </h2>
-        </div>
-    </div>
-</div>
+<!-- category heading -->
+<?php get_template_part('template-parts/category-heading'); ?>
 <!-- сategory communication and marketing -->
 <div class="catcom">
     <div class="catcom__box">

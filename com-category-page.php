@@ -5,46 +5,26 @@ Template Name: com category page
 ?>
 <!-- header -->
 <?php get_header(); ?>
-<!-- navhead -->
-<div class="navhead" style="background-image: url(../images/dist/navhead-bg.jpg)">
-    <div class="container navhead__container">
-        <div class="navhead__content">
-            <div class="navhead__icon">
-                <img src="images/dist/nav-icon.svg">
-            </div>
-            <h2 class="navhead__title">
-                Tapahtumajärjestäjälle
-            </h2>
-        </div>
-    </div>
-</div>
+<!-- category heading -->
+<?php get_template_part('template-parts/category-heading'); ?>
 <!-- сategory communication and marketing -->
 <div class="catcom">
     <div class="catcom__box">
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
-        <a href="#" class="catcom__item">
-            Markkinoinnin suunnittelu
-        </a>
+        <?php
+           $query = new WP_Query(array(
+            'post_type' => 'page',
+            'post_parent' => get_the_ID()
+            )
+          );
+          if($query->have_posts()) :
+            while($query->have_posts()): $query->the_post();
+                ?>
+                <a href="<?= get_the_permalink(); ?>" class="catcom__item">
+                    <?= get_the_title(); ?>
+                </a>
+            <?php endwhile;
+          endif; wp_reset_query();
+        ?>
     </div>
 </div>
 <!-- footer -->
