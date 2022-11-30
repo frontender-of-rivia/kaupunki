@@ -32,51 +32,24 @@ Template Name: com category template
                     <div class="layout--def__content">
                         
 
-
-                        
-
-
-
-                        <?php if(have_rows('page_content_editor')) :?>
-                            <?php while(have_rows('page_content_editor') ): the_row();?>
-                                <?php if (get_row_layout() == 'text'):?>
-
-
-                                    <?= get_sub_field('bold_text_paragraph'); ?>
-                                                
-                                    
-                                    
+                        <?php if(have_rows('content_page_editor')) : ?>
+                            <?php while(have_rows('content_page_editor') ): the_row();?>
+                                <!-- -->
+                                <?php if (get_row_layout() == 'title_with_icon'):?>
+                                    <div class="title_with_icon">
+                                        <?= get_sub_field('title_with_icon_icon'); ?>
+                                        <?= get_sub_field('title_with_icon_title'); ?>
+                                    </div>
                                 <?php endif; ?>
+                                <!-- -->
+                                <?php if (get_row_layout() == 'title_without_icon'):?>
+                                    <div class="title_without_icon">
+                                        <?= get_sub_field('title_without_icon_text'); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <!-- -->
                             <?php endwhile;?>
                         <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- <?php if(have_rows('all_page')) :?>
-                        <?php while(have_rows('all_page') ): the_row();?>
-                            <?php if (get_row_layout() == 'inter_section'):?>
-
-
-                                <?= get_sub_field('inter_undertitle'); ?>
-                                            
-                                
-
-                            <?php endif; ?>
-                        <?php endwhile;?>
-                    <?php endif; ?> -->
-
-
-
 
 
                     </div>
