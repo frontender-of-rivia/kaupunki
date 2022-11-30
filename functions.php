@@ -3,6 +3,12 @@
     // off admin bar
     add_filter('show_admin_bar','__return_false');
 
+    // remove comments from admin menu
+    add_action( 'admin_menu', 'remove_menus' );
+    function remove_menus(){
+        remove_menu_page( 'edit-comments.php' );
+    }
+
     // Connecting scripts and styles
     add_action( 'wp_enqueue_scripts', 'theme_name_styles' );
     function theme_name_styles() {

@@ -30,7 +30,55 @@ Template Name: com category template
                         <?php the_title(); ?>
                     </div>
                     <div class="layout--def__content">
-                        the content
+                        
+
+
+                        
+
+
+
+                        <?php if(have_rows('page_content_editor')) :?>
+                            <?php while(have_rows('page_content_editor') ): the_row();?>
+                                <?php if (get_row_layout() == 'text'):?>
+
+
+                                    <?= get_sub_field('bold_text_paragraph'); ?>
+                                                
+                                    
+                                    
+                                <?php endif; ?>
+                            <?php endwhile;?>
+                        <?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <?php if(have_rows('all_page')) :?>
+                        <?php while(have_rows('all_page') ): the_row();?>
+                            <?php if (get_row_layout() == 'inter_section'):?>
+
+
+                                <?= get_sub_field('inter_undertitle'); ?>
+                                            
+                                
+
+                            <?php endif; ?>
+                        <?php endwhile;?>
+                    <?php endif; ?> -->
+
+
+
+
+
                     </div>
                 </div>
             </div>
