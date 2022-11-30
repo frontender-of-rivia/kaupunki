@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+    // off admin bar
+    add_filter('show_admin_bar','__return_false');
 
     // Connecting scripts and styles
     add_action( 'wp_enqueue_scripts', 'theme_name_styles' );
@@ -37,8 +40,6 @@
     {
         acf_add_options_page();
     }
-
-
 
     /* Events cpt */
     add_action('init', 'my_custom_init__events');

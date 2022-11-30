@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer__left">
         <a href="<?php get_site_url(); ?>" class="footer__logo">
-            <img src="<?php echo get_template_directory_uri();?>/app/images/dist/logo.svg">
+            <img src="<?php the_field('footer_logo_dark', 'options'); ?>">
         </a>
         <div class="footer__roots">
             © Kaupunkitapahtumat Espoo

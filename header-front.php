@@ -23,9 +23,9 @@
 </head>
 
 <header class="header header--main">
-	<div class="header__logo">
+	<a href="<?php get_home_url(); ?>" class="header__logo">
 		<img src="<?= get_template_directory_uri(); ?>/app/images/dist/logo.svg">
-	</div>
+	</a>
 	<main id="panel">
 		<header>
 		  <button class="toggle-button">☰</button>

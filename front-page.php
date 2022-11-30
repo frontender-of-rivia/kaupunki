@@ -22,6 +22,9 @@ Template Name: home page
 </div>
 <!-- main -->
 <div class="main">
+    <div class="main__bg">
+        <img src="<?php echo get_template_directory_uri();?>/app/images/dist/main-bg.png">
+    </div>
     <div class="container">
         <h2 class="main__title">
             <?php the_field('main_section_title'); ?>

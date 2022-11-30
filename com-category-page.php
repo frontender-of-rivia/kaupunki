@@ -5,10 +5,18 @@ Template Name: com category page
 ?>
 <!-- header -->
 <?php get_header(); ?>
+<!-- body color -->
+<?php get_template_part('template-parts/body-color'); ?>
 <!-- category heading -->
 <?php get_template_part('template-parts/category-heading'); ?>
 <!-- сategory communication and marketing -->
-<div class="catcom">
+<section class="catcom">
+    <?php
+    /* breadcrumb Yoast */
+    if ( function_exists( 'yoast_breadcrumb' ) ) :
+      yoast_breadcrumb( '<div id="breadcrumbs">', '</div>' );
+    endif;
+    ?>
     <div class="catcom__box">
         <?php
            $query = new WP_Query(array(
@@ -26,6 +34,6 @@ Template Name: com category page
           endif; wp_reset_query();
         ?>
     </div>
-</div>
+</section>
 <!-- footer -->
 <?php get_footer(); ?>
