@@ -33,25 +33,60 @@ Template Name: com category template
                         
 
                         <?php if(have_rows('content_page_editor')) : ?>
-                            <?php while(have_rows('content_page_editor') ): the_row();?>
-                                <!-- -->
+                            <?php while(have_rows('content_page_editor') ): the_row(); ?>
+                                <!-- title with icon -->
                                 <?php if (get_row_layout() == 'title_with_icon'):?>
                                     <div class="title_with_icon">
-                                        <?= get_sub_field('title_with_icon_icon'); ?>
-                                        <?= get_sub_field('title_with_icon_title'); ?>
+                                        <div class="title_with_icon-icon">
+                                            <img src="<?= get_sub_field('title_with_icon_icon'); ?>">
+                                        </div>
+                                        <div class="title_with_icon-title">
+                                            <?= get_sub_field('title_with_icon_title'); ?>
+                                        </div>
                                     </div>
                                 <?php endif; ?>
-                                <!-- -->
+                                <!-- title without icon -->
                                 <?php if (get_row_layout() == 'title_without_icon'):?>
                                     <div class="title_without_icon">
                                         <?= get_sub_field('title_without_icon_text'); ?>
                                     </div>
                                 <?php endif; ?>
-                                <!-- -->
+                                <!-- spacer -->
+                                <?php if (get_row_layout() == 'spacer'):?>
+                                    <div class="spacer" style="height: <?= get_sub_field('spacer'); ?>px;">
+                                    </div>
+                                <?php endif; ?>
+                                <!-- info -->
+                                <?php if (get_row_layout() == 'info_block'):?>
+                                    <div class="info_block_title">
+                                        <?= get_sub_field('info_title'); ?>
+                                    </div>
+                                    <div class="info_block_content">
+                                        <?php if(have_rows('info_content')) : ?>
+                                            <?php while(have_rows('info_content') ): the_row(); ?>
+
+
+                                                <!-- -->
+                                                <?php if (get_row_layout() == 'info_content_phone'):?>
+                                                    <div class="info_content_phone_text">
+                                                        <?= get_sub_field('info_content_phone_text'); ?>
+                                                    </div>
+                                                <?php endif; ?>
+
+                                                <!-- -->
+                                                <?php if (get_row_layout() == 'info_content_phone'):?>
+                                                    <div class="info_content_phone_text">
+                                                        <?= get_sub_field('info_content_phone_phone'); ?>
+                                                    </div>
+                                                <?php endif; ?>
+
+
+                                            <?php endwhile;?>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
                             <?php endwhile;?>
                         <?php endif; ?>
-
-
                     </div>
                 </div>
             </div>
