@@ -43,6 +43,12 @@ Template Name: com category template
                                         </div>
                                     </div>
                                 <?php endif; ?>
+                                <!-- text block -->
+                                <?php if (get_row_layout() == 'text_block'):?>
+                                    <div class="text_block">
+                                        <?= get_sub_field('text_block_par'); ?>
+                                    </div>
+                                <?php endif; ?>
                                 <!-- title without icon -->
                                 <?php if (get_row_layout() == 'title_without_icon'):?>
                                     <div class="title_without_icon">
@@ -72,6 +78,12 @@ Template Name: com category template
                                                 <?php if (get_row_layout() == 'info_content_mail'):?>
                                                     <a href="mailto:<?= str_replace(['+', ' ', '(', ')', '-'], '', get_sub_field('info_content_mail_mail')); ?>" class="info_content_mail_mail">
                                                         <?= get_sub_field('info_content_mail_text'); ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                                <!-- info block - link -->
+                                                <?php if (get_row_layout() == 'info_content_link'):?>
+                                                    <a href="mailto:<?= str_replace(['+', ' ', '(', ')', '-'], '', get_sub_field('info_content_link_link')); ?>" class="info_content_link_link">
+                                                        <?= get_sub_field('info_content_link_link'); ?>
                                                     </a>
                                                 <?php endif; ?>
                                             <?php endwhile;?>
