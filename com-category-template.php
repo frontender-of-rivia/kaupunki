@@ -30,8 +30,6 @@ Template Name: com category template
                         <?php the_title(); ?>
                     </div>
                     <div class="layout--def__content">
-                        
-
                         <?php if(have_rows('content_page_editor')) : ?>
                             <?php while(have_rows('content_page_editor') ): the_row(); ?>
                                 <!-- title with icon -->
@@ -64,23 +62,18 @@ Template Name: com category template
                                     <div class="info_block_content">
                                         <?php if(have_rows('info_content')) : ?>
                                             <?php while(have_rows('info_content') ): the_row(); ?>
-
-
-                                                <!-- -->
+                                                <!-- info block - phone -->
                                                 <?php if (get_row_layout() == 'info_content_phone'):?>
-                                                    <div class="info_content_phone_text">
+                                                    <a href="tel:<?= str_replace(['+', ' ', '(', ')', '-'], '', get_sub_field('info_content_phone_phone')); ?>" class="info_content_phone_text">
                                                         <?= get_sub_field('info_content_phone_text'); ?>
-                                                    </div>
+                                                    </a>
                                                 <?php endif; ?>
-
-                                                <!-- -->
-                                                <?php if (get_row_layout() == 'info_content_phone'):?>
-                                                    <div class="info_content_phone_text">
-                                                        <?= get_sub_field('info_content_phone_phone'); ?>
-                                                    </div>
+                                                <!-- info block - mail -->
+                                                <?php if (get_row_layout() == 'info_content_mail'):?>
+                                                    <a href="mailto:<?= str_replace(['+', ' ', '(', ')', '-'], '', get_sub_field('info_content_mail_mail')); ?>" class="info_content_mail_mail">
+                                                        <?= get_sub_field('info_content_mail_text'); ?>
+                                                    </a>
                                                 <?php endif; ?>
-
-
                                             <?php endwhile;?>
                                         <?php endif; ?>
                                     </div>
